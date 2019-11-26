@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "strict": true,
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@web/*": ["src/web/*"],
+      "@config/*": ["config/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

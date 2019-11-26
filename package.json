@@ -1,0 +1,36 @@
+{
+  "name": "next",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./config/server.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.4",
+    "@types/koa": "^2.0.52",
+    "@zeit/next-sass": "^1.0.1",
+    "chalk": "^2.4.2",
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "memory-fs": "^0.5.0",
+    "next": "^9.1.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "webpack": "^4.41.2",
+    "ws": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^6.0.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "node-sass": "^4.13.0"
+  }
+}
