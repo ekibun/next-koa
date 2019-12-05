@@ -1,4 +1,10 @@
-import React from 'react';
+/*
+ * @Description: 
+ * @Author: ekibun
+ * @Date: 2019-11-26 17:24:23
+ * @LastEditors: ekibun
+ * @LastEditTime: 2019-12-05 10:54:28
+ */
 import Link from 'next/link';
 
 const linkStyle = {

@@ -3,13 +3,12 @@
  * @Author: ekibun
  * @Date: 2019-10-31 16:30:14
  * @LastEditors: ekibun
- * @LastEditTime: 2019-11-26 10:42:05
+ * @LastEditTime: 2019-12-05 20:22:18
  */
 const path = require('path');
-const chalk = require('chalk');
 const MFS = require('memory-fs');
 const webpack = require('webpack');
-const log = require('./logger')(`[ ${chalk.yellow('apicp')} ]`);
+const log = require('./logger')('apicp', 'cyan');
 
 module.exports = update => {
   const apiConfig = require('./webpack.api.config');
@@ -23,12 +22,6 @@ module.exports = update => {
     stats.warnings.forEach(err => log.w(err));
     if (stats.errors.length) return;
     log.v('compiled successfully');
-    apiMfs.readdir(path.join(__dirname, '../dist/api'), (err, files) => {
-      if (err) return log.e(err);
-      files.forEach(file => {
-        log.v(file);
-      });
-    });
     update(apiMfs.readFileSync(path.join(apiConfig.output.path, 'api.js'), 'utf-8'));
   });
   apiCompiler.hooks.watchRun.tap('dev_run_api', () => {

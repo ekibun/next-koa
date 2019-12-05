@@ -3,13 +3,12 @@
  * @Author: ekibun
  * @Date: 2019-10-31 15:58:05
  * @LastEditors: ekibun
- * @LastEditTime: 2019-11-25 19:16:44
+ * @LastEditTime: 2019-12-05 16:54:03
  */
-const chalk = require('chalk');
 const Koa = require('koa');
 const http = require('http');
 const WebSocket = require('ws');
-const log = require('./logger')(`[ ${chalk.blue('servr')} ]`);
+const log = require('./logger')('servr', 'blue');
 const SetupServer = require('./setup-server');
 const conf = require('./app');
 
