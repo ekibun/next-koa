@@ -1,57 +1,27 @@
-import Layout from '../components/MyLayout';
-import Link from 'next/link';
+import React from 'react';
+import { ConfigProvider, DatePicker, message, Alert } from 'antd';
 
-import { Button } from 'antd';
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-function getPosts() {
-  return [
-    { id: 'hello-nextjs', title: 'Hello Next.js' },
-    { id: 'learn-nextjs', title: 'Learn Next.js is awesome' },
-    { id: 'deploy-nextjs', title: 'Deploy apps with ZEIT' }
-  ];
-}
-
-const PostLink = ({ post }) => (
-  <li>
-    <Link href="/p/[id]" as={`/p/${post.id}`}>
-      <Button>{post.title}</Button>
-    </Link>
-  </li>
-);
-
-export default function Blog() {
-  return (
-    <Layout>
-      <h1>My Blog</h1>
-      <ul>
-        {getPosts().map(post => (
-          <PostLink key={post.id} post={post} />
-        ))}
-      </ul>
-      <style jsx>{`
-        h1,
-        a {
-          font-family: 'Arial';
-        }
-
-        ul {
-          padding: 0;
-        }
-
-        li {
-          list-style: none;
-          margin: 5px 0;
-        }
-
-        a {
-          text-decoration: none;
-          color: blue;
-        }
-
-        a:hover {
-          opacity: 0.6;
-        }
-      `}</style>
-    </Layout>
-  );
+  handleChange = date => {
+    message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
+    this.setState({ date });
+  };
+  render() {
+    const { date } = this.state;
+    return (
+      <ConfigProvider>
+        <div style={{ width: 400, margin: '100px auto' }}>
+          <DatePicker onChange={this.handleChange} />
+          <div style={{ marginTop: 20 }}>
+            <Alert message={`当前日期：${date ? date.format('YYYY-MM-DD') : '未选择'}`} type="success" />
+          </div>
+        </div>
+      </ConfigProvider>
+    );
+  }
 }
