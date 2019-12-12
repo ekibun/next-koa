@@ -1,27 +1,27 @@
+/*
+ * @Description: main
+ * @Author: ekibun
+ * @Date: 2019-11-26 17:13:09
+ * @LastEditors: ekibun
+ * @LastEditTime: 2019-12-11 19:47:15
+ */
 import React from 'react';
-import { ConfigProvider, DatePicker, message, Alert } from 'antd';
+import { Layout } from 'antd';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const { Header, Content, Footer } = Layout;
 
-  handleChange = date => {
-    message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
-    this.setState({ date });
-  };
+export default class SiderDemo extends React.Component {
   render() {
-    const { date } = this.state;
     return (
-      <ConfigProvider>
-        <div style={{ width: 400, margin: '100px auto' }}>
-          <DatePicker onChange={this.handleChange} />
-          <div style={{ marginTop: 20 }}>
-            <Alert message={`当前日期：${date ? date.format('YYYY-MM-DD') : '未选择'}`} type="success" />
+      <Layout>
+        <Header style={{ background: '#fff', padding: 0 }} />
+        <Content style={{ margin: "20px", overflow: 'auto' }}>
+          <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+            2
           </div>
-        </div>
-      </ConfigProvider>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      </Layout>
     );
   }
 }

@@ -3,7 +3,7 @@
  * @Author: ekibun
  * @Date: 2019-10-31 16:23:00
  * @LastEditors: ekibun
- * @LastEditTime: 2019-12-05 15:14:23
+ * @LastEditTime: 2019-12-11 17:23:04
  */
 const next = require('next');
 const SetupAria2daemon = require('./setup-aria2');
@@ -12,7 +12,7 @@ const SetupApiServer = require('./setup-api-server');
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({
   dev,
-  dir: './src/web'
+  dir: './'
 });
 
 /**
@@ -21,8 +21,12 @@ const nextApp = next({
 module.exports = app => new Promise(resolve => {
   let handle = null;
   let API = null;
+  let nextPrepared = false;
   const checkResolve = () => {
-    if (API && handle) resolve();
+    if (API && nextPrepared) {
+      handle = API.routes.getRequestHandler(nextApp);
+      resolve();
+    }
   };
   // aria2
   SetupAria2daemon();
@@ -40,7 +44,7 @@ module.exports = app => new Promise(resolve => {
   });
   // next
   nextApp.prepare().then(() => {
-    handle = nextApp.getRequestHandler();
+    nextPrepared = true;
     checkResolve();
   });
 

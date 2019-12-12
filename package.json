@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "cross-env NODE_ENV=production node ./config/server.js;",
     "dev": "cross-env NODE_ENV=development node --inspect-brk=28812 ./config/server.js;"
   },
   "dependencies": {
     "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
     "@types/koa": "^2.0.52",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
@@ -14,6 +17,7 @@
     "antd": "^3.26.0",
     "antd-dayjs-webpack-plugin": "^0.0.6",
     "aria2": "^4.1.0",
+    "axios": "^0.19.0",
     "babel-plugin-import": "^1.13.0",
     "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
@@ -27,11 +31,13 @@
     "mz": "^2.7.0",
     "next": "^9.1.2",
     "next-compose-plugins": "^2.2.0",
+    "next-routes": "^1.4.2",
     "null-loader": "^3.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-markdown": "^4.2.2",
     "source-map": "^0.7.3",
+    "swr": "^0.1.13",
     "webpack": "^4.41.2",
     "ws": "^7.2.0"
   },
